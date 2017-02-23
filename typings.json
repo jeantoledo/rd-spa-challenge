@@ -1,0 +1,10 @@
+{
+  "globalDependencies": {
+    "chai": "registry:dt/chai#3.4.0+20160926213833",
+    "core-js": "registry:dt/core-js#0.9.7+20161130133742",
+    "mocha": "registry:dt/mocha#2.2.5+20170204022515"
+  },
+  "dependencies": {
+    "webpack": "registry:dt/webpack#2.2.0+20170215060038"
+  }
+}
