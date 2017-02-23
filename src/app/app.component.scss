@@ -1,6 +1,6 @@
 $white: #ddd; 
-$darkPurple: #53314A;
-$lightPurple: #6C4F66;
+$cararra: #F2F1EF;
+$porcelain: #ECF0F1;
 
 html, body {
   height: 100%;
@@ -8,14 +8,14 @@ html, body {
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(to bottom, $darkPurple, $lightPurple );
+    background: linear-gradient(to bottom, $porcelain, $cararra );
     min-height: 100%;
 }
 
 .background {
     background: url(.././assets/bg.jpg) no-repeat center center fixed;
     background-size: cover;
-    opacity: 0.3;
+    opacity: 0.1;
     filter: alpha(opacity=30);
     position: fixed;
     top: 0;
@@ -25,12 +25,6 @@ body {
 }
 
 .app {
-    margin-top: 2em;
     position: absolute;
     width: 100%; 
-}
-
-.title {
-    color: $white;
-    font-size: 2em;
 }
