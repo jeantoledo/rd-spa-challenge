@@ -1,0 +1,55 @@
+@import '../variables';
+
+.card {
+    margin-top: 10px;
+    box-sizing: border-box;
+
+    .card-image {
+        overflow: hidden;
+        background-color: rgba($white, 0.8);
+        
+        img {
+            margin: 10px;
+            width: 128px;
+        }
+
+        .card-info {
+            margin: 10px 20px 10px 20px;
+
+            .card-title {
+                font-size: 24px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .card-content {
+        padding: 10px;
+        background-clip: padding-box;
+        box-sizing: border-box;
+        background-color: rgba($white, 0.7);
+
+        i {
+            color: $edward;
+            margin-right: 20px;
+        }
+    }
+
+    .card-action {
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        background-color: rgba($white, 0.9);
+        padding: 15px;
+
+        a {
+            margin-right: 20px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+
+            &:hover, 
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}

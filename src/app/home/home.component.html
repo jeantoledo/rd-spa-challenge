@@ -1,1 +1,14 @@
-<p>HOME</p>
+<div class="row">
+    <div class="col-sm-6"  [class.col-sm-offset-3]="searchTerm === ''">
+        <rd-search [placeholder]="searchPlaceholder" (onEnter)="onSearchEnter($event)"></rd-search>
+    </div>
+    <div class="col-sm-6 search-filter-info" *ngIf="searchTerm">
+        <span class="alert alert-success under-shadow">
+            <strong>{{searchTotalItems}}</strong> books found for your search: '<strong>{{searchTerm}}</strong>'
+        </span>
+    </div>
+</div>
+
+<div class="row">
+    <rd-card *ngFor="let card of cards" [card]="card"></rd-card>
+</div>

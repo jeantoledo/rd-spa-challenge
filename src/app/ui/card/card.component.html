@@ -1,0 +1,20 @@
+<div class="col-sm-4" *ngIf="card">
+    <div class="card under-shadow">
+        <div class="card-image">
+            <img class="img-responsive pull-left" [src]="card.thumbnail">
+            
+            <div class="card-info pull-left">
+                <strong class="card-title">{{card.title}}</strong>
+                <p class="card-subtitle">{{card.subtitle}}</p>
+            </div>
+        </div>
+
+        <div class="card-content text-right">
+            <i>{{card.author}}</i>
+        </div>
+
+        <div class="card-action text-right">
+            <a href="#" target="new_blank">Details</a>
+        </div>
+    </div>
+</div>

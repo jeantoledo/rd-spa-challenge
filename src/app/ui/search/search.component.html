@@ -1,0 +1,9 @@
+<div class="search-field input-group">
+    <input type="search" class="search-field-input form-control underline-field" [placeholder]="placeholder" (keyup.enter)="onEnterEvent($event)" />
+
+    <span class="input-group-btn">
+        <button class="btn btn-default under-shadow" (click)="onEnterEvent($event)">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+    </span>
+</div>

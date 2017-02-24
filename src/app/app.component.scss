@@ -1,6 +1,8 @@
-$white: #ddd; 
-$cararra: #F2F1EF;
-$porcelain: #ECF0F1;
+@import "ui/variables";
+
+* {
+    border-radius: 0 !important;
+}
 
 html, body {
   height: 100%;
@@ -8,8 +10,9 @@ html, body {
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(to bottom, $porcelain, $cararra );
+    background: linear-gradient(to bottom, $porcelain, $cararra);
     min-height: 100%;
+    font-size: 15px;
 }
 
 .background {
@@ -27,4 +30,18 @@ body {
 .app {
     position: absolute;
     width: 100%; 
+}
+
+.page-wrapper {
+    margin-top: 30px;
+}
+
+.under-shadow {
+    box-shadow: 0 2px 5px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
+}
+
+input.underline-field {
+    padding: 10px;
+    border: none;
+    @extend .under-shadow
 }

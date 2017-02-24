@@ -1,0 +1,15 @@
+@import '../variables';
+
+.search-field {
+    input {
+        height: 50px;
+        font-size: 1.3em;
+    }
+
+    button {
+        height: 50px;
+        width: 50px;
+        border: none;
+        border-left: solid 1px $whiteBorder;
+    }
+}
