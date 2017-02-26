@@ -1,0 +1,77 @@
+@import '../ui/variables';
+
+.book-box {
+    .book-container {
+        background: $whiteBg;
+        position: relative;
+
+        .book-cover {
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            z-index: 2;
+            max-height: 190px;
+            border: 1px solid $indigo;
+        }
+
+        .book-details {
+            height: 250px;  
+            position: relative;
+            overflow: hidden;
+            z-index:1;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            padding: 110px 0 0 235px;
+            
+            &:before {
+                content:'';
+                width:100%; height:100%;
+                position:absolute;
+                overflow: hidden;
+                top:0; left:0;
+                background: $indigo;
+                z-index:-1;
+                transform: skewY(-2.2deg);
+                transform-origin:0 0;
+                backface-visibility: hidden; 
+            }
+
+            .book-title {
+                color: $white;
+                font-size: 2em;
+                position: relative;
+                margin: 0;
+
+                span {
+                    position: absolute;
+                    top: 3px;
+                    margin-left: 12px;
+                    background: $green;
+                    border-radius: 5px;
+                    color: $white;
+                    font-size: 14px;
+                    padding: 0px 4px;
+                }
+            }
+
+            .book-subtitle {    
+                color: $whiteInfo;
+                font-size: 1.2em;    
+                font-weight: 300;
+                margin-right: 20px;
+                margin: 0;
+            }
+
+            i {
+                color: $whiteInfo;
+            }
+        }
+
+        .book-description {
+            padding: 40px;
+            font-size: 16px;
+            line-height: 26px;  
+        }
+    }
+}
+

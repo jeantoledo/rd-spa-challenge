@@ -8,7 +8,7 @@ import './search.component.scss';
 export class SearchComponent { 
     @Input() placeholder: string;
     @Input() value: string;
-    @Output() onEnter = new EventEmitter();
+    @Output() onEnter: EventEmitter<any> = new EventEmitter();
 
     onEnterEvent() {
         let searchTerm = (<HTMLInputElement> document.getElementsByClassName('search-field-input')[0]).value;

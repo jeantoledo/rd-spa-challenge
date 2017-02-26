@@ -1,0 +1,19 @@
+<div class="container" *ngIf="book">
+    <div class="book-box under-shadow">
+        <div class="book-container">
+            <img class="book-cover" *ngIf="book.thumbnail" [src]="book.thumbnail" [alt]="book.title" />
+            <img class="book-cover" *ngIf="!book.thumbnail" src="../.././assets/missingbook.png">
+  
+            <div class="book-details">
+                <h2 class="book-title">{{book.title}} <span>{{book.year | date: 'dd/MM/yyyy'}}</span></h2>
+                <h3 class="book-subtitle">{{book.subtitle}}</h3>
+                <i *ngIf="book.author">por {{book.author}}</i>
+            </div>
+
+            <div class="book-description">
+                <p [innerHTML]="book.description"></p>
+                <p *ngIf="!book.description">Description not found.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -51,13 +51,18 @@
 
         .glyphicon {
             font-size: 1.3em;
-            color: $emerald;
+            color: $lightIndigo;
+
+            &:hover {
+                color: $indigo;
+            }
         }
 
         a {
             transition: color 0.3s ease;
             text-transform: uppercase;
-
+            cursor: pointer;
+            
             &:hover, 
             &:focus {
                 text-decoration: none;

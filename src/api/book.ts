@@ -4,4 +4,6 @@ export class Book {
     title: string;
     subtitle: string;
     author: string;
+    year: number;
+    description: string;
 }

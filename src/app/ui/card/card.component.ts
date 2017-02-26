@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import './card.component.scss';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from './card';
+
+import './card.component.scss';
 
 @Component({
     selector: 'rd-card',
@@ -8,4 +9,9 @@ import { Card } from './card';
 })
 export class CardComponent { 
     @Input() card: Card;
+    @Output() onDetailClick: EventEmitter<any> = new EventEmitter();
+
+    onDetailClickEvent(cardId: string) {
+        this.onDetailClick.emit(cardId);
+    }
 }

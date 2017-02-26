@@ -3,8 +3,8 @@ import { Card } from '../ui/card/card';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { GoogleBooksService } from '../../api/google-books.service';
-import { BookListResponse } from '../../api/book-list-response';
+import { GoogleBooksService } from '../../api/googleBooks.service';
+import { BookListResponse } from '../../api/bookListResponse';
 
 import './home.component.scss';
 
@@ -13,8 +13,9 @@ import './home.component.scss';
 })
 export class HomeComponent implements OnInit { 
     private readonly searchPlaceholder: string = 'find books...';
+    private readonly itemsPerPage: number = 12;
 
-    booksResponse: BookListResponse = new BookListResponse();
+    private booksResponse: BookListResponse = new BookListResponse();
     private currentPage: number = 1;
     private searchTerm: string;
 
@@ -38,15 +39,18 @@ export class HomeComponent implements OnInit {
     search(searchTerm: string) {
         if(searchTerm) {
             this.searchTerm = searchTerm;
-            this._booksService.search(this.searchTerm, this.currentPage)
+            this._booksService.search(this.searchTerm, this.currentPage, this.itemsPerPage)
                 .subscribe((response) => this.booksResponse = response);
         }
     }
-    
 
     onPageChange(page: number) {
         let searchTerm = (<HTMLInputElement> document.getElementsByClassName('search-field-input')[0]).value;
         this.currentPage = page;
         this.search(searchTerm);
+    }
+
+    cardDetailClick(cardId: string) {
+        this._router.navigate(['/book', cardId])
     }
 }
