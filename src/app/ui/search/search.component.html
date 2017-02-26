@@ -1,5 +1,5 @@
 <div class="search-field input-group">
-    <input type="search" class="search-field-input form-control underline-field" [placeholder]="placeholder" (keyup.enter)="onEnterEvent($event)" />
+    <input type="search" class="search-field-input form-control underline-field" [placeholder]="placeholder" (keyup.enter)="onEnterEvent($event)" [(ngModel)]="value" />
 
     <span class="input-group-btn">
         <button class="btn btn-default under-shadow" (click)="onEnterEvent($event)">

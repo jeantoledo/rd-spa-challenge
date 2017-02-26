@@ -7,6 +7,7 @@ import './search.component.scss';
 })
 export class SearchComponent { 
     @Input() placeholder: string;
+    @Input() value: string;
     @Output() onEnter = new EventEmitter();
 
     onEnterEvent() {

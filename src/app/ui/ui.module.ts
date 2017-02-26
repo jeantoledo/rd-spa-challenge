@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardComponent } from './card/card.component';
 import { SearchComponent } from './search/search.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ RouterModule, BrowserModule ],
-  declarations: [ HeaderComponent, CardComponent, SearchComponent ],
-  exports: [ HeaderComponent, CardComponent, SearchComponent ]
+  imports: [ RouterModule, BrowserModule, FormsModule ],
+  declarations: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent ],
+  exports: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent ]
 })
 export class UiModule { }

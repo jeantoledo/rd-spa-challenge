@@ -1,0 +1,17 @@
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a aria-label="Previous" *ngIf="currentPage > 1" (click)="previousPage()">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li *ngFor="let pageOption of currentPageOptions" [class.active]="pageOption === currentPage">
+            <a (click)="setPage(pageOption)">{{pageOption}}</a>
+        </li>
+        <li>
+            <a aria-label="Next" *ngIf="currentPage < pageCount" (click)="nextPage()">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

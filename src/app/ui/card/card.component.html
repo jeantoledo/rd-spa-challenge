@@ -1,20 +1,24 @@
 <div class="col-sm-4" *ngIf="card">
     <div class="card under-shadow">
-        <div class="card-image">
-            <img class="img-responsive pull-left" [src]="card.thumbnail">
-            
+        <div class="card-top">
+            <div class="card-image">
+                <img *ngIf="card.thumbnail" [src]="card.thumbnail">
+                <img *ngIf="!card.thumbnail" src="../../.././assets/missingbook.png">
+            </div>
             <div class="card-info pull-left">
-                <strong class="card-title">{{card.title}}</strong>
-                <p class="card-subtitle">{{card.subtitle}}</p>
+                <strong class="card-title">{{card.title}}</strong><br>
+                <small class="card-subtitle"><i>{{card.subtitle}}</i></small>
             </div>
         </div>
 
         <div class="card-content text-right">
-            <i>{{card.author}}</i>
+            <small><i>{{card.author}}&nbsp;</i></small>
         </div>
 
-        <div class="card-action text-right">
-            <a href="#" target="new_blank">Details</a>
+        <div class="card-footer text-right">
+            <a href="#" target="new_blank">
+                <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+            </a>
         </div>
     </div>
 </div>

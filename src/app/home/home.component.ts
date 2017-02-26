@@ -1,29 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Card } from '../ui/card/card';
 import { Http } from '@angular/http';
-import { GoogleBooksService } from '../../api/googlebooks.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { GoogleBooksService } from '../../api/google-books.service';
+import { BookListResponse } from '../../api/book-list-response';
 
 import './home.component.scss';
 
 @Component({
-    template: require('./home.component.html')
+    template: require('./home.component.html'),
 })
-export class HomeComponent { 
+export class HomeComponent implements OnInit { 
     private readonly searchPlaceholder: string = 'find books...';
 
-    searchTerm: string = '';
-    searchTotalItems: number;
-    cards: Card[]; 
+    booksResponse: BookListResponse = new BookListResponse();
+    private currentPage: number = 1;
+    private searchTerm: string;
 
-    constructor(private _http : Http, private _booksService: GoogleBooksService) {}
+    constructor(private _http: Http, private _router: Router, private _booksService: GoogleBooksService, private _route: ActivatedRoute) {}
 
-    onSearchEnter(q: string) {
-        this.searchTerm = q;
+    ngOnInit() {
+        this._route.queryParams.subscribe(params => {
+            if(params['q']) {
+                this.search(params['q']);
+            }
+        });
+    }
 
-        this._booksService.search(q)
-            .subscribe(response => { 
-                this.searchTotalItems = response.totalItems
-                this.cards = response.items
-            })
+    searchEnter(searchTerm: string) {
+        if(searchTerm && searchTerm != this.searchTerm) {
+            this.currentPage = 1;
+            this._router.navigate([''], { queryParams: { q: searchTerm }})
+        }
+    }
+
+    search(searchTerm: string) {
+        if(searchTerm) {
+            this.searchTerm = searchTerm;
+            this._booksService.search(this.searchTerm, this.currentPage)
+                .subscribe((response) => this.booksResponse = response);
+        }
+    }
+    
+
+    onPageChange(page: number) {
+        let searchTerm = (<HTMLInputElement> document.getElementsByClassName('search-field-input')[0]).value;
+        this.currentPage = page;
+        this.search(searchTerm);
     }
 }

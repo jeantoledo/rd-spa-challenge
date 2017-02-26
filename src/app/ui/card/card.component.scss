@@ -1,23 +1,34 @@
 @import '../variables';
 
 .card {
-    margin-top: 10px;
-    box-sizing: border-box;
-
-    .card-image {
-        overflow: hidden;
+    overflow: hidden;
+    margin-bottom: 20px;
+    
+    .card-top {
         background-color: rgba($white, 0.8);
-        
-        img {
-            margin: 10px;
+        padding: 20px 10px;
+        display: table;
+        width: 100%;
+
+        .card-image {
             width: 128px;
+            display: table-cell;
+            box-sizing: border-box;
+            vertical-align: top;
+            height: 190px;
+            
+            img {
+                max-height: 190px;
+            }
         }
 
         .card-info {
-            margin: 10px 20px 10px 20px;
+            padding-left: 20px;
+            display: table-cell;
+            vertical-align:top;
+            box-sizing: border-box;
 
             .card-title {
-                font-size: 24px;
                 font-weight: 300;
                 text-transform: uppercase;
             }
@@ -25,24 +36,25 @@
     }
 
     .card-content {
-        padding: 10px;
-        background-clip: padding-box;
-        box-sizing: border-box;
+        padding: 10px 20px;
         background-color: rgba($white, 0.7);
-
-        i {
-            color: $edward;
-            margin-right: 20px;
-        }
+        overflow:hidden; 
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+        color: $edward;
     }
 
-    .card-action {
+    .card-footer {
         border-top: 1px solid rgba(160, 160, 160, 0.2);
         background-color: rgba($white, 0.9);
-        padding: 15px;
+        padding: 10px 20px;
+
+        .glyphicon {
+            font-size: 1.3em;
+            color: $emerald;
+        }
 
         a {
-            margin-right: 20px;
             transition: color 0.3s ease;
             text-transform: uppercase;
 
