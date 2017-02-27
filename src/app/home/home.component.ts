@@ -3,7 +3,9 @@ import { Card } from '../ui/card/card';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Book } from '../../models/book';
 import { GoogleBooksService } from '../../api/googleBooks.service';
+import { FavoritesService } from '../../services/favorites.service';
 import { BookListResponse } from '../../api/bookListResponse';
 
 import './home.component.scss';
@@ -19,7 +21,8 @@ export class HomeComponent implements OnInit {
     private currentPage: number = 1;
     private searchTerm: string;
 
-    constructor(private _http: Http, private _router: Router, private _booksService: GoogleBooksService, private _route: ActivatedRoute) {}
+    constructor(private _http: Http, private _router: Router,  private _route: ActivatedRoute, 
+        private _booksService: GoogleBooksService, private _favoritesService: FavoritesService) {}
 
     ngOnInit() {
         this._route.queryParams.subscribe(params => {
@@ -52,5 +55,13 @@ export class HomeComponent implements OnInit {
 
     cardDetailClick(cardId: string) {
         this._router.navigate(['/book', cardId])
+    }
+
+    cardFavoriteClick(card: Card) {
+        this._favoritesService.toggleFavorite(<Book> card);
+    }
+
+    isCardFavourited(cardId: string): boolean {
+        return this._favoritesService.isFavorite(cardId);
     }
 }

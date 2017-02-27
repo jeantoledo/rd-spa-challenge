@@ -1,1 +1,3 @@
-<p>FAVORITES</p>
+<div class="row">
+    <rd-card *ngFor="let book of books" [card]="book" (onDetailClick)="cardDetailClick($event)" [isFavourited]=isCardFavourited(book.id)></rd-card>
+</div>

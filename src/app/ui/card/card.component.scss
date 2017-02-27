@@ -51,10 +51,24 @@
 
         .glyphicon {
             font-size: 1.3em;
-            color: $lightIndigo;
+            cursor: pointer;
 
-            &:hover {
-                color: $indigo;
+            &.gly-details {    
+                color: $lightIndigo;
+                margin-right: 10px; 
+
+                &:hover {
+                    color: $indigo;
+                }
+            }
+
+            &.gly-favorite {
+                color: $lightOrange;
+
+                &:hover,
+                &.favourited {
+                    color: $orange;
+                }
             }
         }
 

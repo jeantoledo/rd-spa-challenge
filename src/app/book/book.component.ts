@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GoogleBooksService } from '../../api/googleBooks.service';
-import { Book } from '../../api/book';
+import { Book } from '../../models/book';
 
 import './book.component.scss';
 

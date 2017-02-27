@@ -10,7 +10,8 @@
 </div>
 
 <div class="row">
-    <rd-card *ngFor="let book of booksResponse.items" [card]="book" (onDetailClick)="cardDetailClick($event)"></rd-card>
+    <rd-card *ngFor="let book of booksResponse.items" [card]="book" (onDetailClick)="cardDetailClick($event)" 
+        [isFavourited]=isCardFavourited(book.id) (onFavoriteClick)="cardFavoriteClick($event)"></rd-card>
 </div>
 
 <div class="row" *ngIf="booksResponse.items">

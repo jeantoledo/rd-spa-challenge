@@ -9,11 +9,12 @@ import { AppRouting } from './app.routing';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { FormsModule } from '@angular/forms';
 import { BookComponent } from './book/book.component';
+import { FavoritesService } from '../services/favorites.service';
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule,  AppRouting, UiModule, FormsModule ],
   declarations: [ AppComponent, HomeComponent, FavoritesComponent, BookComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [ GoogleBooksService ]
+  providers: [ GoogleBooksService, FavoritesService ]
 })
 export class AppModule { }

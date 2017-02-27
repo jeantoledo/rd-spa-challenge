@@ -16,9 +16,8 @@
         </div>
 
         <div class="card-footer text-right">
-            <a (click)="onDetailClickEvent(card.id)">
-                <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-            </a>
+            <span (click)="onDetailClickEvent()" class="glyphicon glyphicon-zoom-in gly-details" aria-hidden="true"></span>
+            <span (click)="onFavoriteClickEvent()" [class.favourited]="isFavourited" class="glyphicon glyphicon-star gly-favorite" aria-hidden="true"></span>
         </div>
     </div>
 </div>

@@ -9,9 +9,16 @@ import './card.component.scss';
 })
 export class CardComponent { 
     @Input() card: Card;
+    @Input() isFavourited: boolean;
+
+    @Output() onFavoriteClick: EventEmitter<any> = new EventEmitter();
     @Output() onDetailClick: EventEmitter<any> = new EventEmitter();
 
-    onDetailClickEvent(cardId: string) {
-        this.onDetailClick.emit(cardId);
+    onDetailClickEvent() {
+        this.onDetailClick.emit(this.card.id);
+    }
+
+    onFavoriteClickEvent() {
+        this.onFavoriteClick.emit(this.card);
     }
 }
