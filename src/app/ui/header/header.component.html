@@ -14,8 +14,12 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
              <ul class="nav navbar-nav">
-                <li><a routerLink="" routerLinkActive="active">Home</a></li>
-                <li><a routerLink="/favorites" routerLinkActive="active">Favorites</a></li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a routerLink="" routerLinkActive="linkActive">Home</a>
+                </li>
+                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+                    <a routerLink="/favorites" routerLinkActive="linkActive">Favorites</a>
+                </li>
             </ul>
         </div>
     </div>

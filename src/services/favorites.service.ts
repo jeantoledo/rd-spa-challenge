@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book } from '../models/book';
+import { Book } from '../shared/book';
 
 @Injectable()
 export class FavoritesService {

@@ -1,4 +1,4 @@
-import { Book } from '../models/book';
+import { Book } from '../shared/book';
 
 export class BookListResponse {
     searchTerm: string;

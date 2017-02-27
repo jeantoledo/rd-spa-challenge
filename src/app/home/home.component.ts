@@ -3,7 +3,7 @@ import { Card } from '../ui/card/card';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Book } from '../../models/book';
+import { Book } from '../../shared/book';
 import { GoogleBooksService } from '../../api/googleBooks.service';
 import { FavoritesService } from '../../services/favorites.service';
 import { BookListResponse } from '../../api/bookListResponse';

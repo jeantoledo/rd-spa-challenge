@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BookListResponse } from './bookListResponse';
-import { Book } from './book';
-import { Rx } from 'rx';
+import { Book } from '../shared/book';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

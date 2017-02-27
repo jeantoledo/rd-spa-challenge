@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../../models/book';
+import { Book } from '../../shared/book';
 import { FavoritesService } from '../../services/favorites.service';
 
 import '../home/home.component.scss';
