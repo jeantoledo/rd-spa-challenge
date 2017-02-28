@@ -1,55 +1,34 @@
-# Bootstrap and AngularJS 2 Single Page Application Kickstart
+# Desafio Single Page Application (Google Books)
 
-[![Build Status](https://travis-ci.org/jeantoledo/js-dev-env.svg?branch=master)](https://travis-ci.org/jeantoledo/js-dev-env) 
-[![Build status](https://ci.appveyor.com/api/projects/status/yemhdgwf44osv9c0?svg=true)](https://ci.appveyor.com/project/jeantoledo/js-dev-env)
+[![Build Status](https://travis-ci.org/jeantoledo/rd-spa-challenge.svg?branch=master)](https://travis-ci.org/jeantoledo/rd-spa-challenge) 
 
-Full featured javascript development enviroment.
+## Tecnologias utilizadas:
 
-| Feature           | Recommended / Used |
-| ------------------|:------------------:|
-| Package Management| [npm](https://www.npmjs.com/)
-| Package Security  | [Node Security](https://www.npmjs.com/package/nsp)
-| Web Server        | [Node Express](http://expressjs.com/pt-br/)
-| Build Automation  | [npm Scripts](https://docs.npmjs.com/misc/scripts)
-| Transpiling       | [Typescript](http://www.typescriptlang.org/) (TS -> ES5)
-| Bundling          | [Webpack 2](https://webpack.github.io/)
-| Linting           | [ESlint](http://eslint.org/docs/rules/)
-| Testing           | [Mocha](https://mochajs.org/), [Chai](http://chaijs.com/), [JSdom](https://www.npmjs.com/package/jsdom)
-| CI Server         | [Travis CI](https://travis-ci.org/) (Linux), [AppVeyor](https://www.appveyor.com/) (Windows)
-| Http Observable   | [rxJS](http://reactivex.io/)
-| Styles            | [SASS](http://sass-lang.com/)
+| Feature           | Tecnologia | Considerações
+| ------------------|:------------------:|:---:|
+| Package Management| [npm](https://www.npmjs.com/) | Prático, simples e poderoso. Outra opção seria o Yarn que vem crescendo muito ultimamente.
+| Web Server        | [Node Express](http://expressjs.com/pt-br/) | Escolhi o Express porque prefiro ter mais flexibilidade para configurar o servidor de dev do meu jeito, além de poder fazer algumas configurações de performance para o servidor de produção. Aqui poderiamos usar também o lite-server ou webpack-dev-server (DEV), são opções válidas também, podem até ser mais produtivas também. A escolha foi por maior flexibilidade.
+| Build Automation  | [npm Scripts](https://docs.npmjs.com/misc/scripts) | O gulp é uma opção válida nesse contexto, mas como já estou utilizando o webpack no projeto escolhi utilizar o npm por simplicidade, além de atender perfeitamente as necessidades da aplicação.
+| Transpiling       | [Typescript](http://www.typescriptlang.org/) (TS -> ES5) | A escolha do Typescript é devido ao grande envolvimento da comunidade do angular 2 com Typescript, documentação na linguagem, etc. Se não utilizasse o Typescript aqui configuraria o babel e escreveria o code em (ECMAScript 2015) ES6. A nova versão do javascript ajuda muito na produtividade.
+| Bundling          | [Webpack 2](https://webpack.github.io/) | Webpack está crescendo cada vez mais, gosto do webpack porque ele é altamente configurável e bem robusto, porém a curva de aprendizado é um pouco maior.
+| Testing           | [Karma](https://karma-runner.github.io), [Jasmine](https://jasmine.github.io/), [Protractor](http://www.protractortest.org/) | É a configuração de testes recomendada pelo time do angular e adotada em grande número pela comunidade.
+| CI Server         | [Travis CI](https://travis-ci.org/) | Serve para os propósitos deste desafio
+| HTTP Observable   | [rxJS](http://reactivex.io/) | Além de ser a recomendação do time do angular, traz muitas vantagens em relação as promisses, como possibilidade de cancelamento da requisição.
+| Styles            | [SASS](http://sass-lang.com/) | Preferencia pessoal, LESS e Stylus também são opções válidas
+| UI/UX | [Bootstrap](https://getbootstrap.com/) | Tem uma comunidade muito grande e muito material de inspiração. Eu particularmente prefiro o Semantic UI, porém ainda é uma dúvida se o projeto está sendo mantido pelo time, um número grande de issues no github pode ser um indicativo disso. Outra opção seria o Material Design.
 
-## Frameworks / Tools Sugestions
+### Considerações sobre a arquitetura do projeto:
 
-Error Logging: [TrackJS](https://trackjs.com/pricing/)<br/>
-Free Static Web Hosting: [Surge](http://surge.sh/)
+Para este projeto utilizei um starter kit de angular 2 e bootstrap que estou montando em meu github. O Angular cli é uma opção válida, porém ele abstrai o webpack e como não gostaria de perder a possibilidade de configurá-lo de forma personalizada. O Angular Seed é outra opção, porém ele não usa webpack, usa systemJS por isso escolhi investir mais tempo para criar o meu starter kit.
+A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google para um projeto de angular 2, as pequenas modificações serão comentadas no código do projeto.
 
-## Recipes
-
-### Updating all npm packages
+## Scripts disponíveis no projeto:
 
 ```sh
-npm i -g npm-check-updates
-ncu -u --packageFile package.json
-npm install
+"npm install" : Instala os pacotes npm no projeto
+"npm start": Roda o ambiente de dev na porta 8080
+"npm test": Roda os testes (watch) usando Karma, configurei o PhantomJS para este projeto
+"npm run test:once": Roda os testes uma única vez, utilizado para a automação de build, não é possível gerar a build de produção se os testes estiverem falhando.
+"npm run build": roda a build de produção e joga os arquivos na pasta dist.
+"npm run build:serve": roda a aplicação na porta 8080 usando a pasta dist,
 ```
-
-### Available npm scripts
-
-```js
-npm start                   // run app in dev mode on port 8080
-npm run build               // run app in production mode on port 8080
-
-npm run security-check      // check for vulnerabilities in npm packages
-npm run share               // create a public link to the local running app
-npm run lint                // run ESLint 
-npm test                    // run mocha tests 
-```
-
-### Generating vendor bundle in production
-
-Just include any vendor import used in app on src/vendor.js file!
-
-### Mocking API
-
-[Watch this](https://app.pluralsight.com/player?course=javascript-development-environment&author=cory-house&name=javascript-development-environment-m10&clip=9&mode=live)

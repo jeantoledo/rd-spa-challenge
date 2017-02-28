@@ -4,8 +4,6 @@
     "description": "RD Single Page Application Challenge",
     "scripts": {
         "start": "babel-node build-scripts/dev-server.js",
-        "localtunnel": "lt --port 8080",
-        "share": "npm-run-all --parallel open:src localtunnel",
         "test": "karma start test-config/karma.conf.js",
         "test:once": "karma start test-config/karma.conf.js --single-run",
         "clean-dist": "rimraf ./dist && mkdir dist",
