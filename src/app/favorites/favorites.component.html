@@ -1,3 +1,4 @@
 <div class="row">
-    <rd-card *ngFor="let book of books" [card]="book" (onDetailClick)="cardDetailClick($event)" [isFavourited]=isCardFavourited(book.id)></rd-card>
+    <rd-card *ngFor="let book of books" [card]="book" (onDetailClick)="cardDetailClick($event)" 
+        [isFavourited]="isCardFavourited(book.id)" (onFavoriteClick)="cardFavoriteClick($event)"></rd-card>
 </div>

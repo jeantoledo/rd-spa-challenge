@@ -41,3 +41,4 @@ src/api/db.json
 dist
 typings
 .vscode
+.tmp

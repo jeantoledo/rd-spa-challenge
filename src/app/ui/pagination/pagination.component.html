@@ -5,7 +5,7 @@
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
-        <li *ngFor="let pageOption of currentPageOptions" [class.active]="pageOption === currentPage">
+        <li class="pagination-option" *ngFor="let pageOption of currentPageOptions" [class.active]="pageOption === currentPage">
             <a (click)="setPage(pageOption)">{{pageOption}}</a>
         </li>
         <li>

@@ -29,7 +29,7 @@ export class PaginationComponent implements OnChanges {
     calculatePageCount() {
         this.pageCount = (this.itemsCount / this.itemsPerPage) | 0;
 
-        if (this.itemsCount % 12 > 0) {
+        if (this.itemsCount % this.itemsPerPage > 0) {
             this.pageCount = this.pageCount + 1;
         }
     }
