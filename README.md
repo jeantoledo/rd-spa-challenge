@@ -35,8 +35,8 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 
 ## Backlog de melhorias:
 
-| Melhoria           |
-| ------------------|
+| Feature / Bug        |
+| ---------------------|
 | Melhorar responsividade dos cards e da página de detalhes do livro
 | Formatar as URL's que faltam para um bom SEO
 | Cancelar a requisição de uma página quando outra for selecionada (rxJS)
