@@ -4,10 +4,10 @@
     "description": "RD Single Page Application Challenge",
     "scripts": {
         "start": "babel-node build-scripts/dev-server.js",
-        "test": "karma start test-config/karma.conf.js",
-        "test:once": "karma start test-config/karma.conf.js --single-run",
+        "test": "karma start test-config/karma.conf.js --single-run",
+        "test:watch": "karma start test-config/karma.conf.js",
         "clean-dist": "rimraf ./dist && mkdir dist",
-        "prebuild": "npm-run-all test:once clean-dist",
+        "prebuild": "npm-run-all test clean-dist",
         "build": "babel-node build-scripts/build.js",
         "build:serve": "babel-node build-scripts/prod-server.js",
         "postinstall": "typings install"
