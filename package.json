@@ -10,8 +10,7 @@
         "prebuild": "npm-run-all test clean-dist",
         "build": "babel-node build-scripts/build.js",
         "build:serve": "babel-node build-scripts/prod-server.js",
-        "postinstall": "typings install",
-        "deploy": "git subtree push --prefix dist origin gh-pages"
+        "postinstall": "typings install"
     },
     "author": "Jean Carlos de Toledo",
     "license": "MIT",

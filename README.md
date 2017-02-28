@@ -47,3 +47,4 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 | Feedback visual ao usuário quando ele favorita um livro
 | Tooltip nos call to action dos cards
 | Adicionaria ts lint ao projeto
+| Adicionar mais testes
