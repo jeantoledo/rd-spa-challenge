@@ -38,7 +38,7 @@ jspm_packages
 
 # My app
 src/api/db.json
-dist
+#dist
 typings
 .vscode
 .tmp

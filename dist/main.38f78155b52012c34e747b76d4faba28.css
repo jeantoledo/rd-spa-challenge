@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/* As variaveis de cor do projeto, não preciso dizer como isso é importante né!? Alterou a cor, altera em um lugar só */
+* {
+  border-radius: 0 !important; }
+
+html, body {
+  height: 100%; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(to bottom, #ECF0F1, #F2F1EF);
+  min-height: 100%;
+  font-size: 15px; }
+
+.background {
+  background: url(/de2147f810b93eeb66580a8349c695a9.jpg) no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.1;
+  filter: alpha(opacity=30);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.app {
+  position: absolute;
+  width: 100%; }
+
+.page-wrapper {
+  margin: 50px 0 30px 0; }
+
+.under-shadow, input.underline-field {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+
+.alert-success {
+  color: #2e7d32;
+  background-color: #a5d6a7;
+  border-color: #a5d6a7; }
+
+input.underline-field {
+  padding: 10px;
+  border: none; }
+@charset "UTF-8";
+/* As variaveis de cor do projeto, não preciso dizer como isso é importante né!? Alterou a cor, altera em um lugar só */
+.card {
+  overflow: hidden;
+  margin-bottom: 20px; }
+  .card .card-top {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 10px;
+    display: table;
+    width: 100%; }
+    .card .card-top .card-image {
+      width: 128px;
+      display: table-cell;
+      box-sizing: border-box;
+      vertical-align: top;
+      height: 190px; }
+      .card .card-top .card-image img {
+        max-height: 190px; }
+    .card .card-top .card-info {
+      padding-left: 20px;
+      display: table-cell;
+      vertical-align: top;
+      box-sizing: border-box; }
+      .card .card-top .card-info .card-title {
+        font-weight: 300;
+        text-transform: uppercase; }
+  .card .card-content {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #ABB7B7; }
+  .card .card-footer {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px; }
+    .card .card-footer .glyphicon {
+      font-size: 1.3em;
+      cursor: pointer; }
+      .card .card-footer .glyphicon.gly-details {
+        color: #9fa8da;
+        margin-right: 10px; }
+        .card .card-footer .glyphicon.gly-details:hover {
+          color: #283593; }
+      .card .card-footer .glyphicon.gly-favorite {
+        color: #ffcc80; }
+        .card .card-footer .glyphicon.gly-favorite:hover, .card .card-footer .glyphicon.gly-favorite.favourited {
+          color: #ef6c00; }
+    .card .card-footer a {
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      cursor: pointer; }
+      .card .card-footer a:hover, .card .card-footer a:focus {
+        text-decoration: none; }
+@charset "UTF-8";
+/* As variaveis de cor do projeto, não preciso dizer como isso é importante né!? Alterou a cor, altera em um lugar só */
+.search-field input {
+  height: 50px;
+  font-size: 1.3em; }
+
+.search-field button {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-left: solid 1px #c9c9c9; }
+.pagination li a {
+  cursor: pointer;
+  user-select: none; }
+.search-field {
+  margin-bottom: 30px; }
+
+.search-filter-info {
+  line-height: 50px;
+  height: 50px; }
+@charset "UTF-8";
+/* As variaveis de cor do projeto, não preciso dizer como isso é importante né!? Alterou a cor, altera em um lugar só */
+.book-box .book-container {
+  background: #F0F0ED;
+  position: relative; }
+  .book-box .book-container .book-cover {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    z-index: 2;
+    max-height: 190px;
+    border: 1px solid #283593; }
+  .book-box .book-container .book-details {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 110px 0 0 235px; }
+    .book-box .book-container .book-details:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      background: #283593;
+      z-index: -1;
+      transform: skewY(-2.2deg);
+      transform-origin: 0 0;
+      backface-visibility: hidden; }
+    .book-box .book-container .book-details .book-title {
+      color: #fff;
+      font-size: 2em;
+      position: relative;
+      margin: 0; }
+      .book-box .book-container .book-details .book-title span {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        background: #2e7d32;
+        color: #fff;
+        font-size: 14px;
+        padding: 2px 4px; }
+    .book-box .book-container .book-details .book-subtitle {
+      color: #C7C1BA;
+      font-size: 1.2em;
+      font-weight: 300;
+      margin-right: 20px;
+      margin: 0; }
+    .book-box .book-container .book-details i {
+      color: #C7C1BA; }
+  .book-box .book-container .book-description {
+    padding: 40px;
+    font-size: 16px;
+    line-height: 26px; }
+
+/*# sourceMappingURL=main.38f78155b52012c34e747b76d4faba28.css.map*/
