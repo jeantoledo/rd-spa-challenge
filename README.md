@@ -33,6 +33,10 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 "npm run build:serve": roda a aplicação na porta 8080 usando a pasta dist.
 ```
 
+## Sugestão de server para rodar a aplicação se não quiser usar o express:
+
+[http-server](https://www.npmjs.com/package/http-server)
+
 ## Backlog de melhorias:
 
 | Feature / Bug        |

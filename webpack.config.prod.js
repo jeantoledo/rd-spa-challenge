@@ -16,7 +16,7 @@ export default {
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'), // a webpack de produção deve jogar os arquivos em dist
-    publicPath: '',
+    publicPath: '/',
     filename: '[name].[chunkhash].js' // usa o plugin de hash para setar o filename
   },
   plugins: [
