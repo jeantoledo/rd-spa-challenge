@@ -7,14 +7,14 @@
 | Feature           | Tecnologia | Considerações
 | ------------------|:------------------:|:---:|
 | Package Management| [npm](https://www.npmjs.com/) | Prático, simples e poderoso. Outra opção seria o Yarn que vem crescendo muito ultimamente.
-| Web Server        | [Node Express](http://expressjs.com/pt-br/) | Escolhi o Express porque prefiro ter mais flexibilidade para configurar o servidor de dev do meu jeito, além de poder fazer algumas configurações de performance para o servidor de produção. Aqui poderiamos usar também o lite-server ou webpack-dev-server (DEV), são opções válidas também, podem até ser mais produtivas também. A escolha foi por maior flexibilidade.
-| Build Automation  | [npm Scripts](https://docs.npmjs.com/misc/scripts) | O gulp é uma opção válida nesse contexto, mas como já estou utilizando o webpack no projeto escolhi utilizar o npm por simplicidade, além de atender perfeitamente as necessidades da aplicação.
+| Web Server        | [Node Express](http://expressjs.com/pt-br/) | Escolhi o Express porque prefiro ter mais flexibilidade para configurar o servidor de dev do meu jeito, além de poder fazer algumas configurações de performance para o servidor de produção. Aqui poderíamos usar também o lite-server ou webpack-dev-server (DEV), são opções válidas também, podem até ser mais produtivas também. A escolha foi por maior flexibilidade.
+| Build Automation  | [npm Scripts](https://docs.npmjs.com/misc/scripts) | O gulp é uma opção válida nesse contexto, mas como já estou a utilizar o webpack no projeto escolhi utilizar o npm por simplicidade, além de atender perfeitamente as necessidades da aplicação.
 | Transpiling       | [Typescript](http://www.typescriptlang.org/) (TS -> ES5) | A escolha do Typescript é devido ao grande envolvimento da comunidade do angular 2 com Typescript, documentação na linguagem, etc. Se não utilizasse o Typescript aqui configuraria o babel e escreveria o code em (ECMAScript 2015) ES6. A nova versão do javascript ajuda muito na produtividade.
-| Bundling          | [Webpack 2](https://webpack.github.io/) | Webpack está crescendo cada vez mais, gosto do webpack porque ele é altamente configurável e bem robusto, porém a curva de aprendizado é um pouco maior.
+| Bundling          | [Webpack 2](https://webpack.github.io/) | Webpack está a crescer cada vez mais, é altamente configurável e bem robusto, porém a curva de aprendizado é um pouco maior.
 | Testing           | [Karma](https://karma-runner.github.io), [Jasmine](https://jasmine.github.io/), [Protractor](http://www.protractortest.org/) | É a configuração de testes recomendada pelo time do angular e adotada em grande número pela comunidade.
 | CI Server         | [Travis CI](https://travis-ci.org/) | Serve para os propósitos deste desafio
 | HTTP Observable   | [rxJS](http://reactivex.io/) | Além de ser a recomendação do time do angular, traz muitas vantagens em relação as promisses, como possibilidade de cancelamento da requisição.
-| Styles            | [SASS](http://sass-lang.com/) | Preferencia pessoal, LESS e Stylus também são opções válidas
+| Styles            | [SASS](http://sass-lang.com/) | Preferência pessoal, LESS e Stylus também são opções válidas
 | UI/UX | [Bootstrap](https://getbootstrap.com/) | Tem uma comunidade muito grande e muito material de inspiração. Eu particularmente prefiro o Semantic UI, porém ainda é uma dúvida se o projeto está sendo mantido pelo time, um número grande de issues no github pode ser um indicativo disso. Outra opção seria o Material Design.
 
 ### Considerações sobre a arquitetura do projeto:
@@ -32,3 +32,18 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 "npm run build": roda a build de produção e joga os arquivos na pasta dist.
 "npm run build:serve": roda a aplicação na porta 8080 usando a pasta dist,
 ```
+
+## Backlog de melhorias:
+
+| Melhoria           |
+| ------------------|
+| Melhorar responsividade dos cards e da página de detalhes do livro
+| Formatar as URL's que faltam para um bom SEO
+| Cancelar a requisição de uma página quando outra for selecionada (rxJS)
+| Lidar com o limite do localstorage para guardar favoritos
+| Remover o livro (visualmente) da página de favoritos quando ele for removido dos favoritos
+| Resolver bug do estilo de menu ativo quando tem query string
+| Fallback da CDN para servidor dev
+| Feedback visual ao usuário quando ele favorita um livro
+| Tooltip nos call to action dos cards
+| Adicionaria ts lint ao projeto

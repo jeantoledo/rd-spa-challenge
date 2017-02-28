@@ -10,6 +10,8 @@ import { BookListResponse } from '../../api/book-list-response';
 
 import './home.component.scss';
 
+// Component Home, possui todas as propriedades e callbacks que serão utilizadas por todos os componentes que ela utiliza (search, card, pagination)
+
 @Component({
     template: require('./home.component.html'),
 })
@@ -24,6 +26,8 @@ export class HomeComponent implements OnInit {
     constructor(private _http: Http, private _router: Router,  private _route: ActivatedRoute, 
         private _booksService: GoogleBooksService, private _favoritesService: FavoritesService) {}
 
+    // Configurei a url de pesquisa para ajudar no SEO da aplicação, quando eu recebo o parametro de pesquisa já faço a pesquisa na hora
+    // Outro passo seria configurar a de paginação também, porém não tive tempo para fazer isso   
     ngOnInit() {
         this._route.queryParams.subscribe(params => {
             if(params['q']) {
@@ -47,6 +51,7 @@ export class HomeComponent implements OnInit {
         }
     }
 
+    // Quando a página é alterada refaço a pesquisa, esse evento é chamado pelo componente de search
     onPageChange(page: number) {
         let searchTerm = (<HTMLInputElement> document.getElementsByClassName('search-field-input')[0]).value;
         this.currentPage = page;
@@ -57,6 +62,7 @@ export class HomeComponent implements OnInit {
         this._router.navigate(['/book', cardId])
     }
 
+    // Abaixo utilizo o serviço que criei para gerenciar os favoritos
     cardFavoriteClick(card: Card) {
         this._favoritesService.toggleFavorite(<Book> card);
     }

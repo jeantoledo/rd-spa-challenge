@@ -18,3 +18,5 @@ import { FavoritesService } from '../services/favorites.service';
   providers: [ GoogleBooksService, FavoritesService ]
 })
 export class AppModule { }
+
+/* Módulo principal da aplicação */

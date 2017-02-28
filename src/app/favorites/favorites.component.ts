@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import '../home/home.component.scss';
 
+// Um componente parecido com o de home, tirando o search e paginação, por isso nem criei outro arquivo scss
 @Component({
     template: require('./favorites.component.html'),
 })

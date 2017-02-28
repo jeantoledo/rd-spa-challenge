@@ -1,3 +1,5 @@
+/* Não tive tempo de criar testes para todos os componentes da aplicação, mas ela está configurada para suporta-los */
+
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { SearchComponent } from './search.component';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +26,7 @@ describe('SearchComponent', () => {
         nativeElement = debugElement.nativeElement;
     });
 
-    it('should bind placeholder value', () => {
+    it('should bind placeholder value', () => { // Esse teste por exemplo verifica se a propriedade placeholder realmente está sendo utilizada onde deveria
         component.placeholder = 'teste placeholder';
         fixture.detectChanges();
         

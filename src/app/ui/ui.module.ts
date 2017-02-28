@@ -13,3 +13,5 @@ import { FormsModule } from '@angular/forms';
   exports: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent ]
 })
 export class UiModule { }
+
+/* Esse modulo é para organizar todos os componentes reutilizaveis desse projeto, que não sejam páginas e sejam elementos de UI */

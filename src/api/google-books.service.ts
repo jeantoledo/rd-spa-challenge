@@ -1,3 +1,5 @@
+/* Serviço que consome o webservice do google books, por isso está na pasta api e não na de services */
+
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -13,9 +15,11 @@ export class GoogleBooksService {
 
     constructor(private _http : Http) {}
 
+    // método que faz o search na api do google books. Busca através de um termo fazendo a paginação
     search(q: string, page: number, itemsPerPage: number) : Observable<BookListResponse> {
         let startIndex = (page - 1) * itemsPerPage;
         let apiFieldsFilter = 'fields=totalItems,items(id,volumeInfo/title,volumeInfo/subtitle,volumeInfo/authors,volumeInfo/description,volumeInfo/imageLinks/thumbnail)';
+        // A variavel apiFieldsFilter é utilizada para melhorar o desempenho das nossas pesquisas no google books
 
         return this._http.get(`${this.apiBaseUrl}/volumes?q=${q}&${apiFieldsFilter}&maxResults=${itemsPerPage}&startIndex=${startIndex}`)
             .map((response: Response) => {
@@ -23,7 +27,10 @@ export class GoogleBooksService {
                 let items = [];
 
                 if(json.items) {
-                    items = json.items.map(item => { 
+                    // Como o response da api do google books tem uma hierarquia bem dividida resolvi remapear 
+                    // para outra hierarquia mais simples, porém uma outra opção seria tratar com a api de forma semelhante
+
+                    items = json.items.map(item => {
                         return {
                             id : item.id,
                             thumbnail: item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail ? item.volumeInfo.imageLinks.thumbnail : '',
@@ -40,7 +47,7 @@ export class GoogleBooksService {
                     searchTerm: q
                 }
             })
-            .catch(this.handleError);
+            .catch(this.handleError); // Não tive tempo de fazer uma mensagem de resposta para o usuário em caso de erro
     }
 
     get(id: string) : Observable<Book> {

@@ -1,3 +1,3 @@
-/* Type Definitions for application */
+/* type definition da aplicação */
 
 declare const ENV: string;

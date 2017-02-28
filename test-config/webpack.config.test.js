@@ -1,3 +1,5 @@
+//webpack utilizado apenas nos testes, aqui eliminamos varios loaders que o karma não precisa para executar nossos testes
+
 var webpack = require('webpack');
 var helpers = require('./helpers');
 

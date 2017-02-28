@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+// Arquivo que gera a build de produção, no momento ele não faz praticamente nada, mas é uma forma prática de configurar as informação que a build mostra
+
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config.prod';
 import chalk from 'chalk';

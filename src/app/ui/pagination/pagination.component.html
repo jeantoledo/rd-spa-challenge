@@ -5,6 +5,7 @@
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
+        <!-- Renderiza os items utilizando o array de opções que é alterado sempre que valores da paginação são alterados -->
         <li class="pagination-option" *ngFor="let pageOption of currentPageOptions" [class.active]="pageOption === currentPage">
             <a (click)="setPage(pageOption)">{{pageOption}}</a>
         </li>

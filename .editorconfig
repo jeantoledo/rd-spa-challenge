@@ -1,4 +1,4 @@
-# EditorConfig is awesome: http://EditorConfig.org
+# Estou utilizando o editorconfig para que todos que usem o projeto commitem com o mesmo padrão de identação e codificação
 root = true
 
 [*]

@@ -1,11 +1,14 @@
+/*neste diretório colocar todos os serviços internos da aplicação (que não consomem webservices)*/
+
 import { Injectable } from '@angular/core';
 import { Book } from '../shared/book';
 
 @Injectable()
-export class FavoritesService {
+export class FavoritesService { // Essa classe basicamente organiza todos os favoritos, ele será utilizado pelos componentes de Favoritos e Home
     private readonly favoritesKey = 'my-favorites-gbooks';
     
     constructor() {
+        // O ideal aqui seria ter um fallback, utilizar os cookies por exemplo caso localStorage não estivesse disponivel
         if(!localStorage) {
             throw "Your browser does not support localStorage";
         }

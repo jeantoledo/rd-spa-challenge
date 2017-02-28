@@ -1,3 +1,5 @@
+// helper utilizado pelo test-config para resolver o root da aplicação
+
 var path = require('path');
 var _root = path.resolve(__dirname, '..');
 

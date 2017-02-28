@@ -3,7 +3,7 @@
         <div class="card-top">
             <div class="card-image">
                 <img *ngIf="card.thumbnail" [src]="card.thumbnail">
-                <img *ngIf="!card.thumbnail" src="../../.././assets/missingbook.png">
+                <img *ngIf="!card.thumbnail" src="../../.././assets/missingbook.png"> <!-- Caso não encontre a imagem do livro, mostra uma vazia -->
             </div>
             <div class="card-info pull-left">
                 <strong class="card-title">{{card.title}}</strong><br>

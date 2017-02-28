@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import express from 'express';
 import path from 'path';
 import open from 'open';
@@ -10,15 +8,17 @@ import chalk from 'chalk';
 const app = express();
 const compiler = webpack(config);
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'development'; //é necessário configurar porque alguns hosts tem a variavel NODE_ENV por default com valor 'production'
 
+// Usa o webpack dev middleware para configurar o servidor de dev
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
- 
+
+// Como estou usando o express para servir a aplicação angular, essa configuração é necessária
 app.use('*', (req, res, next) => {
   var filename = path.join(compiler.outputPath,'index.html');
 
