@@ -30,7 +30,7 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 "npm test": Roda os testes (watch) usando Karma, configurei o PhantomJS para este projeto
 "npm run test:once": Roda os testes uma única vez, utilizado para a automação de build, não é possível gerar a build de produção se os testes estiverem falhando.
 "npm run build": roda a build de produção e joga os arquivos na pasta dist.
-"npm run build:serve": roda a aplicação na porta 8080 usando a pasta dist,
+"npm run build:serve": roda a aplicação na porta 8080 usando a pasta dist.
 ```
 
 ## Backlog de melhorias:
