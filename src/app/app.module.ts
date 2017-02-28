@@ -2,7 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { HttpModule } from '@angular/http';
-import { GoogleBooksService } from '.././api/googleBooks.service';
+import { GoogleBooksService } from '.././api/google-books.service';
 import { UiModule }  from './ui/ui.module';
 import { HomeComponent } from './home/home.component';
 import { AppRouting } from './app.routing';

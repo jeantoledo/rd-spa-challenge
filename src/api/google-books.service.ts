@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { BookListResponse } from './bookListResponse';
+import { BookListResponse } from './book-list-response';
 import { Book } from '../shared/book';
 
 import 'rxjs/add/operator/map';

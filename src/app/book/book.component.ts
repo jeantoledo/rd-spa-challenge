@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GoogleBooksService } from '../../api/googleBooks.service';
+import { GoogleBooksService } from '../../api/google-books.service';
 import { Book } from '../../shared/book';
 
 import './book.component.scss';

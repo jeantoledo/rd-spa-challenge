@@ -4,9 +4,9 @@ import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Book } from '../../shared/book';
-import { GoogleBooksService } from '../../api/googleBooks.service';
+import { GoogleBooksService } from '../../api/google-books.service';
 import { FavoritesService } from '../../services/favorites.service';
-import { BookListResponse } from '../../api/bookListResponse';
+import { BookListResponse } from '../../api/book-list-response';
 
 import './home.component.scss';
 
