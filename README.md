@@ -2,6 +2,13 @@
 
 [![Build Status](https://travis-ci.org/jeantoledo/rd-spa-challenge.svg?branch=master)](https://travis-ci.org/jeantoledo/rd-spa-challenge) 
 
+## 16/03/2017 - Melhorias efetuadas
+
+- Pesquisa: Identifiquei um problema na paginação dos livros que retornava resultados diferentes dos esperados, isso acontece porque a api do google não os retorna em sua chamada. O motivo segundo um profissional do google é que ela foi desenvolvida para retornar resultados de forma mais rápida possível e por consequência o campo "totalItems" (que estava sendo utilizado para a paginação) não é confiável, pois ele é ajustado conforme mais persquisas são feitas. A resposta do funcionário do google pode ser visualizada no [seguinte link](https://productforums.google.com/forum/#!topic/books-api/dh21NHD3cYo;context-place=topicsearchin/books-api/pagination). 
+A solução encontrada para contornar o problema foi alterar a paginação para o uso de botões "previous" e "next" para navegação entre páginas. Além disso, para descobrir quando os resultados foram todos visualizados e esconder o botão next faço a requisição da página subsequente sempre que o usuário visualiza uma página, para a versão definitiva o ideal seria usar esse resultado da requisição (que foi guardado em memória) para fazer uma requisição a menos. Como é apenas uma questão de performance decidi focar o resto do tempo em outras melhorias na app.
+- Adicionei um overlay de loading que traz um feedback visual de que a pesquisa está sendo feita. Foi componentizado no modulo "ui" para utilização neste e em outros sistemas.
+
+
 ## Tecnologias utilizadas:
 
 | Feature           | Tecnologia | Considerações
@@ -39,7 +46,7 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 
 ## Backlog de melhorias:
 
-| Feature / Bug        |
+| Melhoria             |
 | ---------------------|
 | Melhorar responsividade dos cards e da página de detalhes do livro
 | Formatar as URL's que faltam para um bom SEO
@@ -52,3 +59,4 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 | Tooltip nos call to action dos cards
 | Adicionaria ts lint ao projeto
 | Adicionar mais testes
+| O feedback visual de menu ativo não está funcionando para links query string

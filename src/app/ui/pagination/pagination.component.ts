@@ -1,6 +1,5 @@
 /* Criei um componente para fazer paginação da lista de livros, claro que em um componente separado para poder ser reutilizado */
-
-import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import './pagination.component.scss';
 
@@ -8,61 +7,35 @@ import './pagination.component.scss';
     selector: 'rd-pagination',
     template: require('./pagination.component.html')
 })
-export class PaginationComponent implements OnChanges {
-    @Input() itemsPerPage: number;
-    @Input() currentPage: number;
-    @Input() itemsCount: number;
-    // Propriedades necessárias para o funcionamento do componente
+export class PaginationComponent implements OnInit {
+    @Input() itemsPerPage: number; // required
+    @Input() zeroBased: boolean = true;
+    @Input() foundLastPage: boolean = false; //é a cargo de quem usa o componente dizer se chegou na última página
+    @Output() pageChanged: EventEmitter<number> = new EventEmitter();
 
-    @Output() pageChanged: EventEmitter<any> = new EventEmitter();
+    private startIndex: number = 1;
 
-    private pageCount: number;
-    private currentPageOptions: number[];
-
-    // Sempre que o número de items ou a página muda recalculamos as informações
-    ngOnChanges(changes: SimpleChanges) {
-        if (changes['itemsCount']) {
-            this.calculatePageCount();
-        }
-
-        if (changes['itemsCount'] || changes['currentPage']) {
-            this.calculateCurrentPageOptions();
-        }
+    ngOnInit() {
+        if (!this.itemsPerPage) // se o usuário não usou informou valor a propriedade itemsPerPage lança erro
+            throw new Error("Pagination Component: 'itemsPerPage' is required");
     }
 
-    calculatePageCount() {
-        this.pageCount = (this.itemsCount / this.itemsPerPage) | 0;
-
-        if (this.itemsCount % this.itemsPerPage > 0) {
-            this.pageCount = this.pageCount + 1;
-        }
+    emitPageChanged() {
+        let _startIndex = this.startIndex + (this.zeroBased ? -1 : 0); //ajusta o startIndex se for zeroIndex
+        this.pageChanged.emit(_startIndex);
     }
 
-    // Gera um array com as opções de paginação ex: [1, 2, 3, 4, 5], ele tem uma inteligencia para manter a página atual no centro do array
-    calculateCurrentPageOptions() {
-        let delta = 2,
-            left = this.currentPage - delta,
-            right = this.currentPage + delta + 1;
-
-        this.currentPageOptions = Array.from({length: this.pageCount}, (v, k) => k + 1)
-            .filter(i => i && i >= left && i < right);
+    get isFirstPage(): boolean { // usado para mostrar ou não a página de preview.
+        return this.startIndex + (this.zeroBased ? -1 : 0) <= 0;
     }
 
-    previousPage() { // muda de página, recalculando assim as opções e renderizando novamente o componente
-        if (this.currentPage > 1) {
-            this.setPage(this.currentPage - 1);
-        }
+    previousPage() { 
+        this.startIndex -= this.itemsPerPage;
+        this.emitPageChanged();
     }
 
-    nextPage() { // muda de página, recalculando assim as opções e renderizando novamente o componente
-        if (this.currentPage < this.pageCount) {
-            this.setPage(this.currentPage + 1);
-        }
-    }
-
-    setPage(page: number) { // seta a página, recalculando assim as opções e renderizando novamente o componente
-        this.currentPage = page;
-        this.calculateCurrentPageOptions();
-        this.pageChanged.emit(page);
+    nextPage() { 
+        this.startIndex += this.itemsPerPage;
+        this.emitPageChanged();
     }
 }

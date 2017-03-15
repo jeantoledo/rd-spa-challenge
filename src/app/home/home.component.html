@@ -16,6 +16,8 @@
 
 <div class="row" *ngIf="booksResponse.items">
     <div class="col-sm-12 text-center">
-       <rd-pagination [currentPage]="currentPage" [itemsCount]="booksResponse.totalItems" [itemsPerPage]="itemsPerPage" (pageChanged)="onPageChange($event)"></rd-pagination>
+       <rd-pagination [itemsPerPage]="12" [foundLastPage]="isLastPage" (pageChanged)="onPageChange($event)"></rd-pagination>
     </div>
 </div>
+
+<rd-loading></rd-loading> <!--Componente de loading-->

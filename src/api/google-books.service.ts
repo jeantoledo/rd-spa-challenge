@@ -8,6 +8,7 @@ import { Book } from '../shared/book';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class GoogleBooksService {
@@ -16,8 +17,7 @@ export class GoogleBooksService {
     constructor(private _http : Http) {}
 
     // método que faz o search na api do google books. Busca através de um termo fazendo a paginação
-    search(q: string, page: number, itemsPerPage: number) : Observable<BookListResponse> {
-        let startIndex = (page - 1) * itemsPerPage;
+    search(q: string, startIndex: number, itemsPerPage: number) : Observable<BookListResponse> {
         let apiFieldsFilter = 'fields=totalItems,items(id,volumeInfo/title,volumeInfo/subtitle,volumeInfo/authors,volumeInfo/description,volumeInfo/imageLinks/thumbnail)';
         // A variavel apiFieldsFilter é utilizada para melhorar o desempenho das nossas pesquisas no google books
 

@@ -6,11 +6,12 @@ import { CardComponent } from './card/card.component';
 import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   imports: [ RouterModule, BrowserModule, FormsModule ],
-  declarations: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent ],
-  exports: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent ]
+  declarations: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent, LoadingComponent ],
+  exports: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent, LoadingComponent ]
 })
 export class UiModule { }
 
