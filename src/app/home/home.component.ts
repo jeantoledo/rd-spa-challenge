@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AlertComponent } from '../ui/alert/alert.component';
 import { LoadingComponent } from '../ui/loading/loading.component';
 import { Card } from '../ui/card/card';
 import { Http } from '@angular/http';
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
     private nextBooksResponse: BookListResponse = null; // usado para determinar quando chegamos na ultima página
 
     @ViewChild(LoadingComponent) loading: LoadingComponent;
+    @ViewChild(AlertComponent) alert: AlertComponent;
     
     get isLastPage(): boolean { // usado para mostrar ou não a página de preview.
         return this.nextBooksResponse == null || !this.nextBooksResponse || !this.nextBooksResponse.items.length;
@@ -87,7 +89,14 @@ export class HomeComponent implements OnInit {
 
     // Abaixo utilizo o serviço que criei para gerenciar os favoritos
     cardFavoriteClick(card: Card) {
-        this._favoritesService.toggleFavorite(<Book>card);
+        let isFavorite = this._favoritesService.toggleFavorite(<Book>card);
+
+        let bookIcon = '<span class="glyphicon glyphicon-book" aria-hidden="true"></span>';
+        if(isFavorite) {
+            this.alert.success(`${bookIcon} The book '${card.title}' has been successfully added to favorites`);
+        } else {
+            this.alert.danger(`${bookIcon} The book '${card.title}' has been successfully removed from favorites`);
+        }
     }
 
     isCardFavourited(cardId: string): boolean {

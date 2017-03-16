@@ -7,11 +7,12 @@ import { SearchComponent } from './search/search.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './loading/loading.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   imports: [ RouterModule, BrowserModule, FormsModule ],
-  declarations: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent, LoadingComponent ],
-  exports: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent, LoadingComponent ]
+  declarations: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent, LoadingComponent, AlertComponent ],
+  exports: [ HeaderComponent, CardComponent, SearchComponent, PaginationComponent, LoadingComponent, AlertComponent ]
 })
 export class UiModule { }
 

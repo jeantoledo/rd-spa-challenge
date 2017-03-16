@@ -26,16 +26,21 @@ export class FavoritesService { // Essa classe basicamente organiza todos os fav
         return this.getIds().indexOf(id) !== -1
     }
 
-    toggleFavorite(book: Book) {
+    toggleFavorite(book: Book) : boolean {
         let books = this.get();
+        let isFavorite = this.isFavorite(book.id);
 
-        if(this.isFavorite(book.id)) {
+        if(isFavorite) {
             let index = this.getIds().indexOf(book.id);
             books.splice(index, 1);
+            isFavorite = false;
         } else {
             books.push(book);
+            isFavorite = true;
         }
 
         localStorage.setItem(this.favoritesKey, JSON.stringify(books));
+
+        return isFavorite;
     }
 }
