@@ -17,20 +17,20 @@ Requerimentos: nodeJS instalado
 
 ### Rodar localmente:
 
-1 - fazer clone do repositório em uma pasta local e navegar até a mesma usando o console.
-2 - rodar o comando "npm install"
-3 - rodar o comando "npm install -g babel-cli karma rimraf npm-run-all typings"
+1. fazer clone do repositório em uma pasta local e navegar até a mesma usando o console.
+2. rodar o comando "npm install"
+3. rodar o comando "npm install -g babel-cli karma rimraf npm-run-all typings"
     o babel-node (contido no babel-cli) é utilizado para rodar scripts de nodeJS usando o babel
-4 - rodar o comando "npm start"
-5 - abrir o endereço http://localhost:8080
+4. rodar o comando "npm start"
+5. abrir o endereço http://localhost:8080
 
 ### Rodar a build de produção
 
-1 - Repetir os 3 primeiros passos do item acima.
-2 - Rodar o comando "npm run build"
+1. Repetir os 3 primeiros passos do item acima.
+2. Rodar o comando "npm run build"
     Neste ponto ele vai limpar a pasta dist se ela já existir, executar os testes e somente se passarem ele vai jogar os arquivos do webpack no dist. Atenção, eu configurei o karma para usar o phantomJS, então ao executar pela primeira vez vai baixar um arquivo grande, verificar se não tem algum proxy bloqueando e impossibilitando de seguir o processo e por consequência gerar a build de produção.
-3 - Depois de finalizado o processo rodar o comando "npm run build:serve" para servir o conteúdo de dist usando o server express que eu criei, que tem configurações de cache e performance.
-4 - abrir o endereço http://localhost:8080
+3. Depois de finalizado o processo rodar o comando "npm run build:serve" para servir o conteúdo de dist usando o server express que eu criei, que tem configurações de cache e performance.
+4. abrir o endereço http://localhost:8080
 
 Observação: Não é preciso rodar pelo express, pode rodar utilizando o package http-server, algum similar, ou qualquer servidor de arquivos estáticos.
 
