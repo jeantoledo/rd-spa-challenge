@@ -9,7 +9,34 @@ A solução encontrada para contornar o problema foi alterar a paginação para 
 - Loading na pesquisa: Adicionei um overlay de loading que traz um feedback visual de que a pesquisa está sendo feita. Foi componentizado no modulo "ui" para utilização neste e em outros sistemas.
 - Feedback visual de favoritos: Criei um componente de alert do bootstrap para ser utilizado no sistema, utilizei o mesmo para mostrar mensagens quando o usuário adiciona ou remove um livro dos favoritos. Também modifiquei a cor de hover da estrela de favoritos, para não parecer que um livro continua como favorito quando é retirado dos favoritos.
 
-Observação final: Tentei dar prioridade para resolver os bugs mais críticos, que impediam o funcionamento correto da aplicação ou poderiam passar a impressão de que a mesma não estava funcionando corretamente.
+Observação final: Tentei dar prioridade para resolver os bugs mais críticos, que impediam o funcionamento correto da aplicação ou poderiam passar a impressão de que a mesma não estava funcionando corretamente. Além disso criei a seção abaixo explicando os passos para rodar o projeto.
+
+## Como rodar o projeto:
+
+Requerimentos: nodeJS instalado
+
+### Rodar localmente:
+
+1 - fazer clone do repositório em uma pasta local e navegar até a mesma usando o console.
+2 - rodar o comando "npm install"
+3 - rodar o comando "npm install -g babel-cli karma rimraf npm-run-all typings"
+    o babel-node (contido no babel-cli) é utilizado para rodar scripts de nodeJS usando o babel
+4 - rodar o comando "npm start"
+5 - abrir o endereço http://localhost:8080
+
+### Rodar a build de produção
+
+1 - Repetir os 3 primeiros passos do item acima.
+2 - Rodar o comando "npm run build"
+    Neste ponto ele vai limpar a pasta dist se ela já existir, executar os testes e somente se passarem ele vai jogar os arquivos do webpack no dist. Atenção, eu configurei o karma para usar o phantomJS, então ao executar pela primeira vez vai baixar um arquivo grande, verificar se não tem algum proxy bloqueando e impossibilitando de seguir o processo e por consequência gerar a build de produção.
+3 - Depois de finalizado o processo rodar o comando "npm run build:serve" para servir o conteúdo de dist usando o server express que eu criei, que tem configurações de cache e performance.
+4 - abrir o endereço http://localhost:8080
+
+Observação: Não é preciso rodar pelo express, pode rodar utilizando o package http-server, algum similar, ou qualquer servidor de arquivos estáticos.
+
+Observação 2: É possível rodar o comando "npm run build:only" para executar a build de produção sem rodar os testes.
+
+Observação final: Coloco-me a disposição para quaisquer esclarecimentos em caso de algum problema com algum dos passos acima. 
 
 ## Tecnologias utilizadas:
 
