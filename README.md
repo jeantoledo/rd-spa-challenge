@@ -4,10 +4,12 @@
 
 ## 16/03/2017 - Melhorias efetuadas
 
-- Pesquisa: Identifiquei um problema na paginação dos livros que retornava resultados diferentes dos esperados, isso acontece porque a api do google não os retorna em sua chamada. O motivo segundo um profissional do google é que ela foi desenvolvida para retornar resultados de forma mais rápida possível e por consequência o campo "totalItems" (que estava sendo utilizado para a paginação) não é confiável, pois ele é ajustado conforme mais persquisas são feitas. A resposta do funcionário do google pode ser visualizada no [seguinte link](https://productforums.google.com/forum/#!topic/books-api/dh21NHD3cYo;context-place=topicsearchin/books-api/pagination). 
+- Paginação da Pesquisa: Identifiquei um problema na paginação dos livros que retornava resultados diferentes dos esperados, isso acontece porque a api do google não os retorna em sua chamada. O motivo segundo um profissional do google é que ela foi desenvolvida para retornar resultados de forma mais rápida possível e por consequência o campo "totalItems" (que estava sendo utilizado para a paginação) não é confiável, pois ele é ajustado conforme mais persquisas são feitas. A resposta do funcionário do google pode ser visualizada no [seguinte link](https://productforums.google.com/forum/#!topic/books-api/dh21NHD3cYo;context-place=topicsearchin/books-api/pagination). 
 A solução encontrada para contornar o problema foi alterar a paginação para o uso de botões "previous" e "next" para navegação entre páginas. Além disso, para descobrir quando os resultados foram todos visualizados e esconder o botão next faço a requisição da página subsequente sempre que o usuário visualiza uma página, para a versão definitiva o ideal seria usar esse resultado da requisição (que foi guardado em memória) para fazer uma requisição a menos. Como é apenas uma questão de performance decidi focar o resto do tempo em outras melhorias na app.
-- UI: Adicionei um overlay de loading que traz um feedback visual de que a pesquisa está sendo feita. Foi componentizado no modulo "ui" para utilização neste e em outros sistemas.
+- Loading na pesquisa: Adicionei um overlay de loading que traz um feedback visual de que a pesquisa está sendo feita. Foi componentizado no modulo "ui" para utilização neste e em outros sistemas.
+- Feedback visual de favoritos: Criei um componente de alert do bootstrap para ser utilizado no sistema, utilizei o mesmo para mostrar mensagens quando o usuário adiciona ou remove um livro dos favoritos. Também modifiquei a cor de hover da estrela de favoritos, para não parecer que um livro continua como favorito quando é retirado dos favoritos.
 
+Observação final: Tentei dar prioridade para resolver os bugs mais críticos, que impediam o funcionamento correto da aplicação ou poderiam passar a impressão de que a mesma não estava funcionando corretamente.
 
 ## Tecnologias utilizadas:
 
@@ -37,6 +39,7 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 "npm test": Roda os testes uma única vez, utilizado para a automação de build, não é possível gerar a build de produção se os testes estiverem falhando.
 "npm run test:watch": Roda os testes (watch) usando Karma, configurei o PhantomJS para este projeto
 "npm run build": roda a build de produção e joga os arquivos na pasta dist.
+"npm run build:only": roda a build de produção e joga os arquivos na pasta dist sem executar os testes.
 "npm run build:serve": roda a aplicação na porta 8080 usando a pasta dist.
 ```
 
@@ -52,10 +55,9 @@ A Arquitetura do projeto eu mantive praticamente igual a recomendada pelo google
 | Formatar as URL's que faltam para um bom SEO
 | Cancelar a requisição de uma página quando outra for selecionada (rxJS)
 | Lidar com o limite do localstorage para guardar favoritos
-| Remover o livro (visualmente) da página de favoritos quando ele for removido dos favoritos
+| Lidar com o limite da api para requisições (criar uma apikey ou implementar oAuth2)
 | Resolver bug do estilo de menu ativo quando tem query string
 | Fallback da CDN para servidor dev
-| Feedback visual ao usuário quando ele favorita um livro
 | Tooltip nos call to action dos cards
 | Adicionaria ts lint ao projeto
 | Adicionar mais testes

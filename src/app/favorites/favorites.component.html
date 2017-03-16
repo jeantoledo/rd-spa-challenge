@@ -1,4 +1,10 @@
 <div class="row">
+    <div class="col-sm-12">
+        <rd-alert></rd-alert>
+    </div>
+</div>
+
+<div class="row">
     <rd-card *ngFor="let book of books" [card]="book" (onDetailClick)="cardDetailClick($event)" 
         [isFavourited]="isCardFavourited(book.id)" (onFavoriteClick)="cardFavoriteClick($event)"></rd-card>
 </div>

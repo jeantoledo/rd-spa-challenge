@@ -65,7 +65,10 @@
             &.gly-favorite {
                 color: $lightOrange;
 
-                &:hover,
+                &:hover {
+                    color: $mediumOrange;
+                }
+                
                 &.favourited {
                     color: $orange;
                 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../../shared/book';
 import { FavoritesService } from '../../services/favorites.service';
 import { Router } from '@angular/router';
+import { AlertComponent } from '../ui/alert/alert.component';
 
 import '../home/home.component.scss';
 
@@ -12,6 +13,8 @@ import '../home/home.component.scss';
 export class FavoritesComponent implements OnInit { 
     private books: Book[];
     
+    @ViewChild(AlertComponent) alert: AlertComponent;
+    
     constructor(private _favoritesService: FavoritesService, private _router: Router) { }
 
     cardDetailClick(cardId: string) {
@@ -19,7 +22,21 @@ export class FavoritesComponent implements OnInit {
     }
 
     cardFavoriteClick(card: Book) {
-        this._favoritesService.toggleFavorite(<Book> card);
+        let isFavorite = this._favoritesService.toggleFavorite(<Book> card);
+
+        let bookIcon = '<span class="glyphicon glyphicon-book" aria-hidden="true"></span>';
+        if(isFavorite) {
+            this.alert.success(`${bookIcon} The book '${card.title}' has been successfully added to favorites`);
+        } else {
+            this.alert.danger(`${bookIcon} The book '${card.title}' has been successfully removed from favorites`);
+            this.removeBook(card.id);
+        }
+    }
+
+    removeBook(bookId: string) {
+        let ids = this.books.map((i: Book) => i.id);
+        let index = ids.indexOf(bookId);
+        this.books.splice(index, 1);
     }
 
     isCardFavourited(cardId: string): boolean {

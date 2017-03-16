@@ -9,6 +9,7 @@
         "clean-dist": "rimraf ./dist && mkdir dist",
         "prebuild": "npm-run-all test clean-dist",
         "build": "babel-node build-scripts/build.js",
+        "build:only": "babel-node build-scripts/build.js",
         "build:serve": "babel-node build-scripts/prod-server.js",
         "postinstall": "typings install"
     },
